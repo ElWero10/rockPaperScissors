@@ -10,10 +10,56 @@
         }
     }
 
+    function getHumanChoice() {
+        const choice = prompt("Rock, Paper or Scissors?");
+        return choice;
+
+    }
+
     
 
-    console.log(getComputerChoice())
-    console.log(getComputerChoice())
-    console.log(getComputerChoice())
-    console.log(getComputerChoice())
+    function playGame() {
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound(humanChoice, computerChoice) {
+        const lowerCase = humanChoice.toLowerCase();
+        let winner = `You won! ${lowerCase} beats ${computerChoice}`;
+        let loser = `You lose! ${computerChoice} beats ${lowerCase}`;
+
+        if (lowerCase === computerChoice) {
+            console.log("Its a tie!");
+        } else if (lowerCase === 'rock' && computerChoice === 'scissors') {
+            console.log(winner);
+            humanScore++;
+        } else if (lowerCase === 'paper' && computerChoice === 'rock') {
+            console.log(winner);
+            humanScore++;
+        } else if (lowerCase === 'scissors' && computerChoice === 'paper') {
+            console.log(winner);
+            humanScore++;
+        } else {
+            console.log(loser);
+            computerScore++;
+        }
+    }
+
+        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice())
+        
+
+        if (humanScore > computerScore) {
+            console.log("You win!");
+        } else {
+            console.log("CPU wins!");
+        }
+    }
+
+    playGame();
+
+    
+    
 </script>
